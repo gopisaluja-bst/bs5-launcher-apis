@@ -1,14 +1,13 @@
+const updateInstalledAppsNotification_callbackEvent =
+  "updateInstalledAppsNotification";
+
 const installOrPlayApp_event = "installOrPlayApp";
 const changeBannerBackgroundImage_event = "changeBannerBackgroundImage";
 const getInstalledApps_event = "getInstalledApps";
 const openBrowser_event = "openBrowser";
-
-const updateInstalledAppsNotification_callbackEvent =
-  "updateInstalledAppsNotification";
-
 class LauncherApi {
   static openBrowser(url_to_lauch) {
-    data = {
+    const data = {
       url: url_to_lauch,
       type: 2,
     };
@@ -16,7 +15,7 @@ class LauncherApi {
   }
 
   static installOrPlayApp(package_name) {
-    data = package_name;
+    const data = package_name;
     webBridge_postApiRequest(installOrPlayApp_event, data);
   }
 
@@ -26,7 +25,7 @@ class LauncherApi {
     video_playCount,
     time_delay_before_next_loop_in_seconds
   ) {
-    data = {
+    const data = {
       url: image_url,
       video: video_url,
       playCount: video_playCount,
