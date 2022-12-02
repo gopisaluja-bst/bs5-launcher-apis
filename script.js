@@ -33,7 +33,7 @@ function onWebBridgeCallBack(event, data) {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
     resultLabel.innerText +
-    `\nEvent: ${event} \n Data: ${JSON.stringify(data, "", "  ")}\n`;
+    `\callbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
 }
 
 function installOrPlayApp_func() {
@@ -64,4 +64,9 @@ function openBrowser_func() {
   };
 
   postQApiRequest(openBrowser, data);
+}
+
+function clear(){
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText = ""
 }
