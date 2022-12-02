@@ -36,6 +36,13 @@ function onWebBridgeCallBack(event, data) {
     `\callbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
 }
 
+
+
+
+
+
+
+
 function installOrPlayApp_func() {
   data = "com.ludo.king";
   postQApiRequest(installOrPlayApp, data);
