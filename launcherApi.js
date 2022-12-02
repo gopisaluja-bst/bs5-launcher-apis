@@ -6,36 +6,6 @@ const openBrowser_event = "openBrowser";
 const updateInstalledAppsNotification_callbackEvent =
   "updateInstalledAppsNotification";
 
-const callbackEventMapping = {};
-
-window.onload = (event) => {
-  if (qt != undefined) {
-    new QWebChannel(qt.webChannelTransport, function (channel) {
-      window.webBridge = channel.objects.webBridge;
-      window.webBridge.contentChanged.connect((response) => {
-        const { event, data } = response;
-        document.dispatchEvent(
-          new CustomEvent(event, {
-            detail: data,
-          })
-        );
-      });
-    });
-  }
-};
-
-function webBridge_postApiRequest(
-  event,
-  data = {},
-  callbackEvent = null,
-  ga = {},
-  page = 0x0000
-) {
-  const requestData = JSON.stringify({ event, data, page, callbackEvent, ga });
-  console.log(`webBridge request :${requestData}`);
-  window.webBridge?.dataChanged(requestData);
-}
-
 class LauncherApi {
   static openBrowser(url_to_lauch) {
     data = {
