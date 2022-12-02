@@ -32,15 +32,10 @@ function webBridge_postApiRequest(
   window.webBridge?.dataChanged(requestData);
 }
 
-function webBridge_onCallback(event, data) {
-  console.log(
-    `\ncallbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`
-  );
+function webBridge_onCallback(event, data) {  
   if (callbackEventMapping.hasOwnProperty(event)) {
-    console.log("callback func to be called");
     callback_func = callbackEventMapping[event];
     callback_func(data);
-    console.log("callback func called");
   }
 }
 

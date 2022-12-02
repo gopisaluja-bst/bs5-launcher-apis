@@ -1,10 +1,3 @@
-function webBridge_onCallback(event, data) {
-  const resultLabel = document.getElementById("result");
-  resultLabel.innerText =
-    resultLabel.innerText +
-    `\callbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
-}
-
 function openBrowser() {
   webBridge_openBrowser("https://www.google.com/");
 }
@@ -33,7 +26,7 @@ function getInstalledAppsCallback(data) {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
     resultLabel.innerText +
-    `\ncallbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
+    `\ndata: ${JSON.stringify(data, "", "  ")}\n`;
 }
 function getInstalledApps() {
   webBridge_getInstalledApps(getInstalledAppsCallback);
