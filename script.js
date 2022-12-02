@@ -49,7 +49,7 @@ function changeBannerBackgroundImage_func() {
     playCount: 5,
     sleep: 10000,
   };
-  postQApiRequest(changeBannerBackgroundImage, {});
+  postQApiRequest(changeBannerBackgroundImage, data);
 }
 
 function getInstalledApps_func() {
