@@ -33,14 +33,10 @@ function getInstalledAppsCallback(data) {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
     resultLabel.innerText +
-    `\n againa callbackEvent: ${event} \n data: ${JSON.stringify(
-      data,
-      "",
-      "  "
-    )}\n`;
+    `\ncallbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
 }
 function getInstalledApps() {
-  webBridge_getInstalledApps();
+  webBridge_getInstalledApps(getInstalledAppsCallback);
 }
 function clearResult() {
   const resultLabel = document.getElementById("result");

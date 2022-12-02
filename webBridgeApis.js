@@ -9,7 +9,6 @@ const updateInstalledAppsNotification_callbackEvent =
 const callbackEventMapping = {};
 
 window.onload = (event) => {
-  console.log("QWebChannel setup started!");
   if (qt != undefined) {
     new QWebChannel(qt.webChannelTransport, function (channel) {
       window.webBridge = channel.objects.webBridge;
@@ -17,7 +16,6 @@ window.onload = (event) => {
         const { event, data } = response;
         webBridge_onCallback(event, data);
       });
-      console.log("QWebChannel setup done!");
     });
   }
 };
@@ -35,18 +33,9 @@ function webBridge_postApiRequest(
 }
 
 function webBridge_onCallback(event, data) {
-  const resultLabel = document.getElementById("result");
-  resultLabel.innerText =
-    resultLabel.innerText +
-    `\n callbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
-  if (
-    callbackEventMapping.hasOwnProperty(
-      updateInstalledAppsNotification_callbackEvent
-    )
-  ) {
-    callback_func =
-      callbackEventMapping[updateInstalledAppsNotification_callbackEvent];
-    callback_func();
+  if (callbackEventMapping.hasOwnProperty(event)) {
+    callback_func = callbackEventMapping[event];
+    callback_func(data);
   }
 }
 
