@@ -22,16 +22,32 @@ function changeBannerBackgroundImage() {
   );
 }
 
-function getInstalledAppsCallback(data) {
-  const resultLabel = document.getElementById("result");
-  resultLabel.innerText =
-    resultLabel.innerText +
-    `\ndata: ${JSON.stringify(data, "", "  ")}\n`;
-}
+document.addEventListener(
+  updateInstalledAppsNotification_callbackEvent,
+  function (event) {
+    console.log(event)
+    const resultLabel = document.getElementById("result");
+    resultLabel.innerText =
+      resultLabel.innerText +
+      `\ncallbackEvent: ${updateInstalledAppsNotification_callbackEvent}\ndata: ${JSON.stringify(
+        event.detail,
+        "",
+        ""
+      )}\n`;
+  }
+);
+
 function getInstalledApps() {
-  webBridge_getInstalledApps(getInstalledAppsCallback);
+  webBridge_getInstalledApps();
 }
 function clearResult() {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText = "";
+}
+
+
+
+
+window.test = function testing() {
+  webBridge_onCallback(updateInstalledAppsNotification_callbackEvent, {"test": "test"})
 }

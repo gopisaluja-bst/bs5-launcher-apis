@@ -32,11 +32,12 @@ function webBridge_postApiRequest(
   window.webBridge?.dataChanged(requestData);
 }
 
-function webBridge_onCallback(event, data) {  
-  if (callbackEventMapping.hasOwnProperty(event)) {
-    callback_func = callbackEventMapping[event];
-    callback_func(data);
-  }
+function webBridge_onCallback(event, data) {
+  document.dispatchEvent(
+    new CustomEvent(event, {
+      detail: data,
+    })
+  );
 }
 
 function webBridge_openBrowser(url_to_lauch) {
@@ -67,9 +68,7 @@ function webBridge_changeBannerBackgroundImage(
   webBridge_postApiRequest(changeBannerBackgroundImage_event, data);
 }
 
-function webBridge_getInstalledApps(callback_func) {
-  callbackEventMapping[updateInstalledAppsNotification_callbackEvent] =
-    callback_func;
+function webBridge_getInstalledApps() {
   webBridge_postApiRequest(
     getInstalledApps_event,
     {},
