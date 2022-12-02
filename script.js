@@ -35,7 +35,3 @@ function clearResult() {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText = "";
 }
-
-// window.test = function testApi() {
-//   webBridge_onCallback("updateInstalledAppsNotification", { test: "test1" });
-// };
