@@ -8,24 +8,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QWebChannel-Demo</title>
-    <script type="text/javascript" src="script.js"></script>
     <script
       type="text/javascript"
       src="qwebchannel.js"
-      onload="setupQWebChannel()"
     ></script>
+    <script
+      type="text/javascript"
+      src="webBridgeApis.js"
+    ></script>
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <div>
       <div>
-        <button onclick="installOrPlayApp_func()">Install or Play App</button>
-        <button onclick="changeBannerBackgroundImage_func()">
+        <button onclick="installOrPlayApp()">Install or Play App</button>
+        <button onclick="changeBannerBackgroundImage()">
           Change Background
         </button>
         <button onclick="getInstalledApps_func()">
           Get List Of Installed Apps
         </button>
-        <button onclick="openBrowser_func()">Open link in Browser</button>
+        <button onclick="openBrowser()">Open link in Browser</button>
         <button onclick="clearResult()">clear</button>
       </div>
       <label id="result" style="color: orange"></label>

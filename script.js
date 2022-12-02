@@ -1,78 +1,36 @@
-const installOrPlayApp = "installOrPlayApp";
-const changeBannerBackgroundImage = "changeBannerBackgroundImage";
-const getInstalledApps = "getInstalledApps";
-const updateInstalledAppsNotification = "updateInstalledAppsNotification";
-const openBrowser = "openBrowser";
-
-function setupQWebChannel() {
-  if (qt != undefined) {
-    new QWebChannel(qt.webChannelTransport, function (channel) {
-      window.webBridge = channel.objects.webBridge;
-      window.webBridge.contentChanged.connect((response) => {
-        const { event, data } = response;
-        onWebBridgeCallBack(event, data);
-      });
-      console.log("QWebChannel setup done!");
-    });
-  }
-}
-
-function postQApiRequest(
-  event,
-  data,
-  callbackEvent = null,
-  ga = {},
-  page = 0x0000
-) {
-  const requestData = JSON.stringify({ event, data, page, callbackEvent, ga });
-  console.log(`webBridge request :${requestData}`);
-  window.webBridge?.dataChanged(requestData);
-}
-
-function onWebBridgeCallBack(event, data) {
+function webBridge_onCallback(event, data) {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
     resultLabel.innerText +
     `\callbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
 }
 
-
-
-
-
-
-
-
-function installOrPlayApp_func() {
-  data = "com.ludo.king";
-  postQApiRequest(installOrPlayApp, data);
+function openBrowser() {
+  webBridge_openBrowser("https://www.google.com/");
 }
 
-function changeBannerBackgroundImage_func() {
-  data = {
-    url: "https://cdn-bgp.bluestacks.com/bgp/fullhd/com.plarium.mechlegion.jpg",
-    video:
-      "https://cdn.now.gg/apps-content/com.innersloth.spacemafia/videos/desktop/among-us.mp4",
-    playCount: 5,
-    sleep: 10000,
-  };
-  postQApiRequest(changeBannerBackgroundImage, data);
+function installOrPlayApp() {
+  webBridge_installOrPlayApp("com.ludo.king");
 }
 
-function getInstalledApps_func() {
-  data = {};
-  postQApiRequest(getInstalledApps, data, updateInstalledAppsNotification);
+function changeBannerBackgroundImage() {
+  const image_url =
+    "https://cdn-bgp.bluestacks.com/bgp/fullhd/com.plarium.mechlegion.jpg";
+  const video_url =
+    "https://cdn.now.gg/apps-content/com.innersloth.spacemafia/videos/desktop/among-us.mp4";
+  const video_playCount = 5;
+  const time_delay_before_next_loop_in_seconds = 10;
+
+  webBridge_changeBannerBackgroundImage(
+    image_url,
+    video_url,
+    video_playCount,
+    time_delay_before_next_loop_in_seconds
+  );
 }
-
-function openBrowser_func() {
-  data = {
-    url: "https://www.google.com/",
-    type: 2,
-  };
-
-  postQApiRequest(openBrowser, data);
+function getInstalledApps(){
+  
 }
-
 function clearResult() {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText = "";
