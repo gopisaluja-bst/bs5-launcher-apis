@@ -1,9 +1,9 @@
 function openBrowser() {
-  webBridge_openBrowser("https://www.google.com/");
+  LauncherApi.openBrowser("https://www.google.com/");
 }
 
 function installOrPlayApp() {
-  webBridge_installOrPlayApp("com.ludo.king");
+  LauncherApi.installOrPlayApp("com.ludo.king");
 }
 
 function changeBannerBackgroundImage() {
@@ -14,7 +14,7 @@ function changeBannerBackgroundImage() {
   const video_playCount = 5;
   const time_delay_before_next_loop_in_seconds = 10;
 
-  webBridge_changeBannerBackgroundImage(
+  LauncherApi.changeBannerBackgroundImage(
     image_url,
     video_url,
     video_playCount,
@@ -37,7 +37,7 @@ document.addEventListener(
 );
 
 function getInstalledApps() {
-  webBridge_getInstalledApps();
+  LauncherApi.getInstalledApps();
 }
 function clearResult() {
   const resultLabel = document.getElementById("result");
