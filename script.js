@@ -28,8 +28,8 @@ function changeBannerBackgroundImage() {
     time_delay_before_next_loop_in_seconds
   );
 }
-function getInstalledApps(){
-  
+function getInstalledApps() {
+  webBridge_getInstalledApps();
 }
 function clearResult() {
   const resultLabel = document.getElementById("result");
