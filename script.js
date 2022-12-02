@@ -11,13 +11,13 @@ function changeBannerBackgroundImage() {
     "https://cdn-bgp.bluestacks.com/bgp/fullhd/com.plarium.mechlegion.jpg";
   const video_url =
     "https://cdn.now.gg/apps-content/com.innersloth.spacemafia/videos/desktop/among-us.mp4";
-  const video_playCount = 5;
+  const video_play_count = 5;
   const time_delay_before_next_loop_in_seconds = 10;
 
   LauncherApi.changeBannerBackgroundImage(
     image_url,
     video_url,
-    video_playCount,
+    video_play_count,
     time_delay_before_next_loop_in_seconds
   );
 }
