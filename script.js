@@ -25,7 +25,6 @@ function changeBannerBackgroundImage() {
 document.addEventListener(
   updateInstalledAppsNotification_callbackEvent,
   function (event) {
-    console.log(event)
     const resultLabel = document.getElementById("result");
     resultLabel.innerText =
       resultLabel.innerText +
@@ -43,11 +42,4 @@ function getInstalledApps() {
 function clearResult() {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText = "";
-}
-
-
-
-
-window.test = function testing() {
-  webBridge_onCallback(updateInstalledAppsNotification_callbackEvent, {"test": "test"})
 }
