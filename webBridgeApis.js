@@ -68,5 +68,9 @@ function webBridge_changeBannerBackgroundImage(
 }
 
 function webBridge_getInstalledApps() {
-  webBridge_postApiRequest(getInstalledApps_event);
+  webBridge_postApiRequest(
+    getInstalledApps_event,
+    {},
+    updateInstalledAppsNotification_callbackEvent
+  );
 }
