@@ -66,7 +66,7 @@ function openBrowser_func() {
   postQApiRequest(openBrowser, data);
 }
 
-function clear(){
+function clearResult() {
   const resultLabel = document.getElementById("result");
-  resultLabel.innerText = ""
+  resultLabel.innerText = "";
 }
