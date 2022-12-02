@@ -28,6 +28,17 @@ function changeBannerBackgroundImage() {
     time_delay_before_next_loop_in_seconds
   );
 }
+
+function getInstalledAppsCallback(data) {
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText =
+    resultLabel.innerText +
+    `\n againa callbackEvent: ${event} \n data: ${JSON.stringify(
+      data,
+      "",
+      "  "
+    )}\n`;
+}
 function getInstalledApps() {
   webBridge_getInstalledApps();
 }
@@ -35,3 +46,7 @@ function clearResult() {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText = "";
 }
+
+// window.test = function testApi() {
+//   webBridge_onCallback("updateInstalledAppsNotification", { test: "test1" });
+// };

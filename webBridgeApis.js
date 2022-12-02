@@ -6,6 +6,8 @@ const openBrowser_event = "openBrowser";
 const updateInstalledAppsNotification_callbackEvent =
   "updateInstalledAppsNotification";
 
+const callbackEventMapping = {};
+
 window.onload = (event) => {
   console.log("QWebChannel setup started!");
   if (qt != undefined) {
@@ -36,7 +38,16 @@ function webBridge_onCallback(event, data) {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
     resultLabel.innerText +
-    `\callbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
+    `\n callbackEvent: ${event} \n data: ${JSON.stringify(data, "", "  ")}\n`;
+  if (
+    callbackEventMapping.hasOwnProperty(
+      updateInstalledAppsNotification_callbackEvent
+    )
+  ) {
+    callback_func =
+      callbackEventMapping[updateInstalledAppsNotification_callbackEvent];
+    callback_func();
+  }
 }
 
 function webBridge_openBrowser(url_to_lauch) {
@@ -67,7 +78,9 @@ function webBridge_changeBannerBackgroundImage(
   webBridge_postApiRequest(changeBannerBackgroundImage_event, data);
 }
 
-function webBridge_getInstalledApps() {
+function webBridge_getInstalledApps(callback_func) {
+  callbackEventMapping[updateInstalledAppsNotification_callbackEvent] =
+    callback_func;
   webBridge_postApiRequest(
     getInstalledApps_event,
     {},
