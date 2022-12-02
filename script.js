@@ -10,7 +10,7 @@ function setupQWebChannel() {
       window.webBridge = channel.objects.webBridge;
       window.webBridge.contentChanged.connect((response) => {
         const { event, data } = response;
-        alertUser(event, data);
+        onWebBridgeCallBack(event, data);
       });
       console.log("QWebChannel setup done!");
     });
@@ -29,13 +29,12 @@ function postQApiRequest(
   window.webBridge?.dataChanged(requestData);
 }
 
-function alertUser(event, data) {
-  alert(`Event: ${event} \n Data: ${JSON.stringify(data, "", "  ")}`);
+function onWebBridgeCallBack(event, data) {
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText =
+    resultLabel.innerText +
+    `\nEvent: ${event} \n Data: ${JSON.stringify(data, "", "  ")}\n`;
 }
-
-window.test = function alertUserTest(event, data) {
-  alertUser(event, data);
-};
 
 function installOrPlayApp_func() {
   data = "com.ludo.king";
@@ -47,8 +46,8 @@ function changeBannerBackgroundImage_func() {
     url: "https://cdn-bgp.bluestacks.com/bgp/fullhd/com.plarium.mechlegion.jpg",
     video:
       "https://cdn.now.gg/apps-content/com.innersloth.spacemafia/videos/desktop/among-us.mp4",
-    playCount: "5",
-    sleep: "10000",
+    playCount: 5,
+    sleep: 10000,
   };
   postQApiRequest(changeBannerBackgroundImage, {});
 }
@@ -61,7 +60,7 @@ function getInstalledApps_func() {
 function openBrowser_func() {
   data = {
     url: "https://www.google.com/",
-    type: "2",
+    type: 2,
   };
 
   postQApiRequest(openBrowser, data);
