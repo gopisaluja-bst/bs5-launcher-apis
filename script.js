@@ -1,4 +1,4 @@
-const installorPlayApp = "installorPlayApp";
+const installOrPlayApp = "installOrPlayApp";
 const changeBannerBackgroundImage = "changeBannerBackgroundImage";
 const getInstalledApps = "getInstalledApps";
 const updateInstalledAppsNotification = "updateInstalledAppsNotification";
@@ -38,7 +38,7 @@ function onWebBridgeCallBack(event, data) {
 
 function installOrPlayApp_func() {
   data = "com.ludo.king";
-  postQApiRequest(installorPlayApp, data);
+  postQApiRequest(installOrPlayApp, data);
 }
 
 function changeBannerBackgroundImage_func() {
