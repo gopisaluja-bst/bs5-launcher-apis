@@ -12,13 +12,13 @@ function changeBannerBackgroundImage() {
   const video_url =
     "https://cdn.now.gg/apps-content/com.innersloth.spacemafia/videos/desktop/among-us.mp4";
   const video_play_count = 2;
-  const time_delay_before_next_loop_in_seconds = 5;
+  const delay_before_video_in_seconds = 5;
 
   LauncherApi.changeBannerBackgroundImage(
     image_url,
     video_url,
     video_play_count,
-    time_delay_before_next_loop_in_seconds
+    delay_before_video_in_seconds
   );
 }
 

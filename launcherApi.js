@@ -23,13 +23,13 @@ class LauncherApi {
     image_url,
     video_url,
     video_play_count,
-    time_delay_before_next_loop_in_seconds
+    delay_before_video_in_seconds
   ) {
     const data = {
       url: image_url,
       video: video_url,
       playCount: video_play_count,
-      sleep: time_delay_before_next_loop_in_seconds * 1000,
+      sleep: delay_before_video_in_seconds * 1000,
     };
     webBridge_postApiRequest(changeBannerBackgroundImage_event, data);
   }
