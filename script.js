@@ -1,25 +1,20 @@
 function openBrowser() {
-  LauncherApi.openBrowser("https://www.google.com/");
+  const url = document.getElementById("urlInput").value;
+
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText =
+    resultLabel.innerText + `\nEvent: openBrowser\ndata: ${url}\n`;
+
+  LauncherApi.openBrowser(url);
 }
 
 function installOrPlayApp() {
-  LauncherApi.installOrPlayApp("com.ludo.king");
-}
+  const pkg = document.getElementById("packageInput").value;
 
-function changeBannerBackgroundImage() {
-  const image_url =
-    "https://cdn-bgp.bluestacks.com/bgp/fullhd/com.plarium.mechlegion.jpg";
-  const video_url =
-    "https://cdn.now.gg/apps-content/com.innersloth.spacemafia/videos/desktop/among-us.mp4";
-  const video_play_count = 2;
-  const delay_before_video_in_seconds = 5;
-
-  LauncherApi.changeBannerBackgroundImage(
-    image_url,
-    video_url,
-    video_play_count,
-    delay_before_video_in_seconds
-  );
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText =
+    resultLabel.innerText + `\nEvent: installOrPlayApp\ndata: ${pkg}\n`;
+  LauncherApi.installOrPlayApp(pkg);
 }
 
 document.addEventListener(
@@ -37,22 +32,32 @@ document.addEventListener(
 );
 
 function getInstalledApps() {
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText = resultLabel.innerText + `\nEvent: getInstalledApps\n`;
   LauncherApi.getInstalledApps();
 }
 
 function closeWindow() {
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText = resultLabel.innerText + `\nEvent: closeWindow\n`;
   LauncherApi.closeWindow();
 }
 
 function minimizeWindow() {
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText = resultLabel.innerText + `\nEvent: minimizeWindow\n`;
   LauncherApi.minimizeWindow();
 }
 
 function maximizeWindow() {
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText = resultLabel.innerText + `\nEvent: maximizeWindow\n`;
   LauncherApi.maximizeWindow();
 }
 
 function restoreWindow() {
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText = resultLabel.innerText + `\nEvent: restoreWindow\n`;
   LauncherApi.restoreWindow();
 }
 
