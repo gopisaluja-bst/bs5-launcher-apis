@@ -39,6 +39,23 @@ document.addEventListener(
 function getInstalledApps() {
   LauncherApi.getInstalledApps();
 }
+
+function closeWindow() {
+  LauncherApi.closeWindow();
+}
+
+function minimizeWindow() {
+  LauncherApi.minimizeWindow();
+}
+
+function maximizeWindow() {
+  LauncherApi.maximizeWindow();
+}
+
+function restoreWindow() {
+  LauncherApi.restoreWindow();
+}
+
 function clearResult() {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText = "";

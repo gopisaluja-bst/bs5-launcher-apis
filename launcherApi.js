@@ -5,6 +5,10 @@ const installOrPlayApp_event = "installOrPlayApp";
 const changeBannerBackgroundImage_event = "changeBannerBackgroundImage";
 const getInstalledApps_event = "getInstalledApps";
 const openBrowser_event = "openBrowser";
+const closeWindow_event = "closeWindow";
+const minimizeWindow_event = "minimizeWindow";
+const maximizeWindow_event = "maximizeWindow";
+const restoreWindow_event = "restoreWindow";
 class LauncherApi {
   static openBrowser(url_to_lauch) {
     const data = {
@@ -40,5 +44,18 @@ class LauncherApi {
       {},
       updateInstalledAppsNotification_callbackEvent
     );
+  }
+
+  static closeWindow() {
+    webBridge_postApiRequest(closeWindow_event);
+  }
+  static minimizeWindow() {
+    webBridge_postApiRequest(minimizeWindow_event);
+  }
+  static maximizeWindow() {
+    webBridge_postApiRequest(maximizeWindow_event);
+  }
+  static restoreWindow() {
+    webBridge_postApiRequest(restoreWindow_event);
   }
 }
