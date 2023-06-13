@@ -9,12 +9,21 @@ function openBrowser() {
 }
 
 function installOrPlayApp() {
-  const pkg = document.getElementById("packageInput").value;
+  const pkg = document.getElementById("installOrPlayAppPackage").value;
 
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
     resultLabel.innerText + `\nEvent: installOrPlayApp\ndata: ${pkg}\n`;
   LauncherApi.installOrPlayApp(pkg);
+}
+
+function uninstallApp() {
+  const pkg = document.getElementById("uninstallAppPackage").value;
+
+  const resultLabel = document.getElementById("result");
+  resultLabel.innerText =
+    resultLabel.innerText + `\nEvent: uninstallApp\ndata: ${pkg}\n`;
+  LauncherApi.uninstallApp(pkg);
 }
 
 document.addEventListener(

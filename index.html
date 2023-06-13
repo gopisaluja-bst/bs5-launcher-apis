@@ -1,55 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="robots" content="noindex" />
-    <meta name="robots" content="nofollow" />
-    <meta name="googlebot" content="noindex" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QWebChannel-Demo</title>
-    <script type="text/javascript" src="qwebchannel.js"></script>
-    <script type="text/javascript" src="launcherApi.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-  </head>
-  <body>
-    <div style="display: flex; flex-direction: column">
-      <div style="display: flex; justify-content: space-between">
-        <div>Launcher APIs Demo</div>
-        <div>
-          <button onclick="minimizeWindow()">minimize</button>
-          <button onclick="maximizeWindow()">maximize</button>
-          <button onclick="restoreWindow()">restore</button>
-          <button onclick="closeWindow()">close</button>
-        </div>
+
+<head>
+  <meta name="robots" content="noindex" />
+  <meta name="robots" content="nofollow" />
+  <meta name="googlebot" content="noindex" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QWebChannel-Demo</title>
+  <script type="text/javascript" src="qwebchannel.js"></script>
+  <script type="text/javascript" src="launcherApi.js"></script>
+  <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+  <div style="display: flex; flex-direction: column">
+    <div style="display: flex; justify-content: space-between">
+      <div>Launcher APIs Demo</div>
+      <div>
+        <button onclick="minimizeWindow()">minimize</button>
+        <button onclick="maximizeWindow()">maximize</button>
+        <button onclick="restoreWindow()">restore</button>
+        <button onclick="closeWindow()">close</button>
+      </div>
+    </div>
+    <div>
+      <button onclick="getInstalledApps()">Get List Of Installed Apps</button>
+      <div>
+        <button onclick="installOrPlayApp()">Install or Play App</button>
+        <input style="width: 200px" type="text" id="packageInput" value="com.ludo.king" />
       </div>
       <div>
-        <button onclick="getInstalledApps()">Get List Of Installed Apps</button>
-        <div>
-          <button onclick="installOrPlayApp()">Install or Play App</button>
-          <input
-            style="width: 200px"
-            type="text"
-            id="packageInput"
-            value="com.ludo.king"
-          />
-        </div>
-        <div>
-          <button onclick="openBrowser()">Open link in Browser</button>
-          <input
-            style="width: 200px"
-            type="text"
-            id="urlInput"
-            value="https://www.google.com"
-          />
-        </div>
+        <button onclick="uninstallApp()">Uninstall App</button>
+        <input style="width: 200px" type="text" id="uninstallAppPackage" value="com.ludo.king" />
       </div>
-      <label style="color: #046571; margin-top: 20px"
-        >Logs will be displayed below..</label
-      >
-      <button style="width: 100px" onclick="clearResult()">clear logs</button>
-      <label id="result" style="color: #046571"></label>
+      <div>
+        <button onclick="openBrowser()">Open link in Browser</button>
+        <input style="width: 200px" type="text" id="urlInput" value="https://www.google.com" />
+      </div>
     </div>
-    <iframe src="https://qa-internal.bstkinternal.net/promoted-games.html" style="border:none;" title="Iframe Example"></iframe>
-  </body>
+    <label style="color: #046571; margin-top: 20px">Logs will be displayed below..</label>
+    <button style="width: 100px" onclick="clearResult()">clear logs</button>
+    <label id="result" style="color: #046571"></label>
+  </div>
+  <iframe src="https://qa-internal.bstkinternal.net/promoted-games.html" style="border: none"
+    title="Iframe Example"></iframe>
+</body>
+
 </html>

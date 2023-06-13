@@ -2,6 +2,7 @@ const updateInstalledAppsNotification_callbackEvent =
   "updateInstalledAppsNotification";
 
 const installOrPlayApp_event = "installOrPlayApp";
+const uninstallApp_event = "uninstallApp";
 const getInstalledApps_event = "getInstalledApps";
 const openBrowser_event = "openBrowser";
 const closeWindow_event = "closeWindow";
@@ -20,6 +21,10 @@ class LauncherApi {
   static installOrPlayApp(package_name) {
     const data = package_name;
     webBridge_postApiRequest(installOrPlayApp_event, data);
+  }
+  static uninstallApp(package_name) {
+    const data = package_name;
+    webBridge_postApiRequest(uninstallApp_event, data);
   }
 
   static getInstalledApps() {
