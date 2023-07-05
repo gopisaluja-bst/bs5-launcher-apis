@@ -506,6 +506,18 @@ function webBridge_postApiRequest(
   page = 0x0000
 ) {
   const requestData = JSON.stringify({ event, data, page, callbackEvent, ga });
-  console.log(`webBridge request :${requestData}`);
+  console.log(
+    `webBridge request :${JSON.stringify(
+      {
+        event,
+        data,
+        page,
+        callbackEvent,
+        ga,
+      },
+      null,
+      2
+    )}`
+  );
   window.webBridge?.dataChanged(requestData);
 }
