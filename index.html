@@ -22,6 +22,12 @@
     .api-demo-div {
       margin: 5px 0px;
     }
+    input {
+      width: 800px;
+    }
+    label {
+      min-width: 100px; display:inline-block
+    }
   </style>
 </head>
 
@@ -42,41 +48,37 @@
       </div>
       <div class="api-demo">
         <div class="api-demo-div">
-          <Label style="min-width: 100px; display:inline-block"> Package Name: </Label>
-          <input style="width: 400px" type="text" id="urlInput" value="https://www.google.com" />
+          <Label > Package Name: </Label>
+          <input type="text" id="urlInput" value="https://www.google.com" />
         </div>
         <button onclick="openBrowser()">Open link in Browser</button>
       </div>
       <div class="api-demo">
         <div class="api-demo-div">
-          <Label style="min-width: 100px; display:inline-block"> Package Name: </Label>
-          <input style="width: 400px" type="text" id="installOrPlayAppPackage" value="com.android.wemixtestapp" />
+          <Label > Package Name: </Label>
+          <input  type="text" id="installOrPlayAppPackage" value="com.android.wemixtestapp" />
         </div>
         <div class="api-demo-div">
-          <Label style="min-width: 100px; display:inline-block"> Game Name: </Label>
-          <input style="width: 400px" type="text" id="installOrPlayAppPackage_app_name"
-            value="com.android.wemixtestapp" />
+          <Label > Game Name: </Label>
+          <input  type="text" id="installOrPlayAppPackage_app_name"
+            value="WemixTestApp" />
         </div>
         <div class="api-demo-div">
-          <Label style="min-width: 100px; display:inline-block"> Icon URL: </Label>
-          <input style="width: 400px" type="text" id="installOrPlayAppPackage_icon_url"
-            value="com.android.wemixtestapp" />
+          <Label > Icon URL: </Label>
+          <input type="text" id="installOrPlayAppPackage_icon_url"
+            value="https://cdn-bgp.bluestacks.com/BGP/test/icon_com.wemixtestapp.jpg" />
         </div>
         <div class="api-demo-div">
-          <Label style="min-width: 100px; display:inline-block"> App Url: </Label>
-          <input style="width: 400px" type="text" id="installOrPlayAppPackage_apk_url"
-            value="com.android.wemixtestapp" />
-        </div>
-        <div class="api-demo-div">
-          <Label style="min-width: 100px; display:inline-block"> Action Value: </Label>
-          <input style="width: 400px" type="text" id="installOrPlayAppPackage_action_value" value="InstallCDN" />
+          <Label > App Url: </Label>
+          <input  type="text" id="installOrPlayAppPackage_apk_url"
+            value="https://cdn3.bluestacks.com/bluestacks-app-store/Internal/com.android.wemixtestapp/DevProvidedApk/6.0/Wemix-v6.0.apk" />
         </div>
         <button onclick="installOrPlayApp()">Install or Play App</button>
       </div>
       <div class="api-demo">
         <div>
-          <Label style="min-width: 100px; display:inline-block"> Package Name: </Label>
-          <input style="width: 400px" type="text" id="uninstallAppPackage" value="com.android.wemixtestapp" />
+          <Label > Package Name: </Label>
+          <input type="text" id="uninstallAppPackage" value="com.android.wemixtestapp" />
         </div>
         <button onclick="uninstallApp()">Uninstall App</button>
       </div>

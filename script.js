@@ -9,7 +9,7 @@ function openBrowser() {
 }
 
 function installOrPlayApp() {
-  const package = document.getElementById("installOrPlayAppPackage").value;
+  const package_name = document.getElementById("installOrPlayAppPackage").value;
   const app_name = document.getElementById(
     "installOrPlayAppPackage_app_name"
   ).value;
@@ -20,30 +20,24 @@ function installOrPlayApp() {
     "installOrPlayAppPackage_apk_url"
   ).value;
 
-  const action_value = document.getElementById(
-    "installOrPlayAppPackage_action_value"
-  ).value;
-
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
     resultLabel.innerText +
     `\n\nEvent: installOrPlayApp\ndata: ${JSON.stringify(
       {
-        package,
+        package: package_name,
         app_name,
         icon_url,
         apk_url,
-        action_value,
       },
       null,
       2
     )}\n`;
   LauncherApi.installOrPlayApp(
-    package,
+    package_name,
     app_name,
     icon_url,
     apk_url,
-    action_value
   );
 }
 
