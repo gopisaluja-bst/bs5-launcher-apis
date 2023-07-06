@@ -3,18 +3,42 @@ function openBrowser() {
 
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
-    resultLabel.innerText + `\nEvent: openBrowser\ndata: ${url}\n`;
+    resultLabel.innerText + `\n\nEvent: openBrowser\ndata: ${url}\n`;
 
   LauncherApi.openBrowser(url);
 }
 
 function installOrPlayApp() {
-  const pkg = document.getElementById("installOrPlayAppPackage").value;
+  const package_name = document.getElementById("installOrPlayAppPackage").value;
+  const app_name = document.getElementById(
+    "installOrPlayAppPackage_app_name"
+  ).value;
+  const icon_url = document.getElementById(
+    "installOrPlayAppPackage_icon_url"
+  ).value;
+  const apk_url = document.getElementById(
+    "installOrPlayAppPackage_apk_url"
+  ).value;
 
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
-    resultLabel.innerText + `\nEvent: installOrPlayApp\ndata: ${pkg}\n`;
-  LauncherApi.installOrPlayApp(pkg);
+    resultLabel.innerText +
+    `\n\nEvent: installOrPlayApp\ndata: ${JSON.stringify(
+      {
+        package: package_name,
+        app_name,
+        icon_url,
+        apk_url,
+      },
+      null,
+      2
+    )}\n`;
+  LauncherApi.installOrPlayApp(
+    package_name,
+    app_name,
+    icon_url,
+    apk_url,
+  );
 }
 
 function uninstallApp() {
@@ -22,7 +46,7 @@ function uninstallApp() {
 
   const resultLabel = document.getElementById("result");
   resultLabel.innerText =
-    resultLabel.innerText + `\nEvent: uninstallApp\ndata: ${pkg}\n`;
+    resultLabel.innerText + `\n\nEvent: uninstallApp\ndata: ${pkg}\n`;
   LauncherApi.uninstallApp(pkg);
 }
 
@@ -34,39 +58,39 @@ document.addEventListener(
       resultLabel.innerText +
       `\ncallbackEvent: ${updateInstalledAppsNotification_callbackEvent}\ndata: ${JSON.stringify(
         event.detail,
-        "",
-        ""
+        null,
+        2
       )}\n`;
   }
 );
 
 function getInstalledApps() {
   const resultLabel = document.getElementById("result");
-  resultLabel.innerText = resultLabel.innerText + `\nEvent: getInstalledApps\n`;
+  resultLabel.innerText = resultLabel.innerText + `\n\nEvent: getInstalledApps\n`;
   LauncherApi.getInstalledApps();
 }
 
 function closeWindow() {
   const resultLabel = document.getElementById("result");
-  resultLabel.innerText = resultLabel.innerText + `\nEvent: closeWindow\n`;
+  resultLabel.innerText = resultLabel.innerText + `\n\nEvent: closeWindow\n`;
   LauncherApi.closeWindow();
 }
 
 function minimizeWindow() {
   const resultLabel = document.getElementById("result");
-  resultLabel.innerText = resultLabel.innerText + `\nEvent: minimizeWindow\n`;
+  resultLabel.innerText = resultLabel.innerText + `\n\nEvent: minimizeWindow\n`;
   LauncherApi.minimizeWindow();
 }
 
 function maximizeWindow() {
   const resultLabel = document.getElementById("result");
-  resultLabel.innerText = resultLabel.innerText + `\nEvent: maximizeWindow\n`;
+  resultLabel.innerText = resultLabel.innerText + `\n\nEvent: maximizeWindow\n`;
   LauncherApi.maximizeWindow();
 }
 
 function restoreWindow() {
   const resultLabel = document.getElementById("result");
-  resultLabel.innerText = resultLabel.innerText + `\nEvent: restoreWindow\n`;
+  resultLabel.innerText = resultLabel.innerText + `\n\nEvent: restoreWindow\n`;
   LauncherApi.restoreWindow();
 }
 

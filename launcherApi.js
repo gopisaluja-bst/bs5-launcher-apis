@@ -18,8 +18,14 @@ class LauncherApi {
     webBridge_postApiRequest(openBrowser_event, data);
   }
 
-  static installOrPlayApp(package_name) {
-    const data = package_name;
+  static installOrPlayApp(package_name, app_name, icon_url, apk_url) {
+    const data = {
+      package: package_name,
+      app_name: app_name,
+      icon_url: icon_url,
+      apk_url: apk_url,
+      action_value: "InstallCDN",
+    };
     webBridge_postApiRequest(installOrPlayApp_event, data);
   }
   static uninstallApp(package_name) {
