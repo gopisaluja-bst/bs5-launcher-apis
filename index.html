@@ -26,7 +26,12 @@
       width: 800px;
     }
     label {
-      min-width: 100px; display:inline-block
+      min-width: 120px; display:inline-block;
+      font-weight: bold;
+    }
+    .logs {
+      display: flex;
+      flex-direction: column;
     }
   </style>
 </head>
@@ -48,7 +53,7 @@
       </div>
       <div class="api-demo">
         <div class="api-demo-div">
-          <Label > Package Name: </Label>
+          <Label > Url: </Label>
           <input type="text" id="urlInput" value="https://www.google.com" />
         </div>
         <button onclick="openBrowser()">Open link in Browser</button>
@@ -84,10 +89,10 @@
       </div>
 
     </div>
-    <div class="api-demo">
-      <label style="color: #046571; margin-top: 20px">Logs will be displayed below..</label>
+    <div class="logs">      
+      <span style="color: #046571; margin-top: 20px">Logs will be displayed below..</span>
       <button style="width: 100px" onclick="clearResult()">clear logs</button>
-      <label id="result" style="color: #046571"></label>
+      <span id="result" style="color: #046571"></span>      
     </div>
   </div>
   <!-- <iframe src="https://qa-internal.bstkinternal.net/promoted-games.html" style="border: none"
