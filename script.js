@@ -115,7 +115,14 @@ function hitApi() {
   // Fake api for making post requests
   let fetchRes = fetch(apiPath, options);
   fetchRes.then(res =>
-    res.json()).then(d => {
-    console.log(d)
+    res.json()).then(data => {
+    const resultLabel = document.getElementById("result");
+    resultLabel.innerText =
+      resultLabel.innerText +
+      `\nAPI HIT \ndata: ${JSON.stringify(
+        data,
+        null,
+        2
+      )}\n`;
   })
 }
