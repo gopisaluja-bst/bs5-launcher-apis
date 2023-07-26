@@ -98,3 +98,24 @@ function clearResult() {
   const resultLabel = document.getElementById("result");
   resultLabel.innerText = "";
 }
+
+function hitApi() {
+  const apiPath = document.getElementById("momentApiPath").value;
+  const payload = document.getElementById("momentApiPayload").value;
+  const method = document.getElementById("momentApiMethod").value;
+  const contentType = document.getElementById("momentApiContentType").value;
+
+  let options = {
+    method: method,
+    headers: {
+      'Content-Type': contentType
+    },
+    body: payload
+  }
+  // Fake api for making post requests
+  let fetchRes = fetch(apiPath, options);
+  fetchRes.then(res =>
+    res.json()).then(d => {
+    console.log(d)
+  })
+}

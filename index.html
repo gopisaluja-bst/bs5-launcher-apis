@@ -90,7 +90,25 @@
         </div>
         <button onclick="uninstallApp()">Uninstall App</button>
       </div>
-
+      <div class="api-demo">
+        <div>
+          <Label> Api Path: </Label>
+          <input type="text" id="momentApiPath" value="https://api-milkbasket.now.gg/get_weekly_apps" />
+        </div>
+        <div>
+          <Label>Method: </Label>
+          <input type="text" id="momentApiMethod" value="POST" />
+        </div>
+        <div>
+          <Label>Content Type: </Label>
+          <input type="text" id="momentApiContentType" value='application/json' />
+        </div>
+        <div>
+          <Label>Payload: </Label>
+          <input type="text" id="momentApiPayload" value='{"country":"IN"}' />
+        </div>
+        <button onclick="hitApi()">Hit Api</button>
+      </div>
     </div>
     <div class="logs">
       <span style="color: #046571; margin-top: 20px">Logs will be displayed below..</span>
